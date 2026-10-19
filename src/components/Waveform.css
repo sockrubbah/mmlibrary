@@ -1,0 +1,47 @@
+:root {
+    --page-background: #413663;
+    --surface-background: #121116;
+    --accent-color: #C3FF1A;
+    --primary-text: #F4F3F6;
+    --secondary-text: #8F8A98;
+    --dark-text: #0A090C;
+    --border-color: #2D2938;
+    --soft-surface: #1A1820;
+    --fade-background: #0B0A0F;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.waveform {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.waveform span {
+    width: 8px;
+    flex-shrink: 0;
+    border-radius: 0 0 5px 5px;
+    background-color: var(--accent-color);
+    transition: height 0.05s;
+}
+
+@media (max-width: 650px) {
+    .waveform {
+        display: none;
+    }
+}

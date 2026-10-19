@@ -1,0 +1,64 @@
+:root {
+    --page-background: #413663;
+    --surface-background: #121116;
+    --accent-color: #C3FF1A;
+    --primary-text: #F4F3F6;
+    --secondary-text: #8F8A98;
+    --dark-text: #0A090C;
+    --border-color: #2D2938;
+    --soft-surface: #1A1820;
+    --fade-background: #0B0A0F;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.site-header {
+    min-height: 80px;
+    padding: 10px 4.5%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: var(--surface-background);
+    border-bottom: 1px solid #25232C;
+    position: sticky;
+    top: 0;
+    z-index: 11;
+}
+
+.site-header .brand {
+    width: 300px;
+    max-width: 100%;
+    flex-shrink: 0;
+}
+
+.site-header .brand img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 1100px) {
+    .site-header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 650px) {
+    .site-header {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .site-header .brand {
+        width: 260px;
+    }
+}
