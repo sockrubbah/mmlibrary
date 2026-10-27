@@ -1,13 +1,13 @@
 :root {
     --page-background: #413663;
     --surface-background: #121116;
-    --accent-color: #C3FF1A;
-    --primary-text: #F4F3F6;
-    --secondary-text: #8F8A98;
-    --dark-text: #0A090C;
-    --border-color: #2D2938;
-    --soft-surface: #1A1820;
-    --fade-background: #0B0A0F;
+    --accent-color: #c3ff1a;
+    --primary-text: #f4f3f6;
+    --secondary-text: #aaa3b5;
+    --dark-text: #0a090c;
+    --border-color: #2d2938;
+    --soft-surface: #1a1820;
+    --fade-background: #0b0a0f;
 }
 
 * {
@@ -16,7 +16,42 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    min-width: 0;
+    color: var(--primary-text);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: linear-gradient(105deg, var(--page-background), var(--fade-background) 70%);
+}
+
+#root {
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 5px;
+}
+
+main {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 60px 40px;
 }
 
 .site-header {
@@ -24,41 +59,166 @@ body {
     padding: 10px 4.5%;
     display: flex;
     align-items: center;
-    gap: 40px;
-    background-color: var(--surface-background);
-    border-bottom: 1px solid #25232C;
+    justify-content: space-between;
+    gap: 28px;
+    background: var(--surface-background);
+    border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 11;
 }
 
-.site-header .brand {
-    width: 300px;
-    max-width: 100%;
-    flex-shrink: 0;
+.brand {
+    flex: 0 1 300px;
+    min-width: 180px;
 }
 
-.site-header .brand img {
+.brand img {
     display: block;
+    width: 300px;
+    max-width: 100%;
+}
+
+.site-header nav {
+    margin-left: auto;
+    flex: 1;
+}
+
+.site-header ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    list-style: none;
+}
+
+.site-header nav a {
+    display: block;
+    padding: 12px 0;
+    color: var(--secondary-text);
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus-visible,
+.site-header nav .active {
+    color: var(--accent-color);
+}
+
+.site-header nav .active {
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.site-header nav .share-button {
+    padding: 11px 20px;
+    color: var(--accent-color);
+    font-weight: bold;
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+}
+
+.site-header nav ul {
     width: 100%;
-    height: auto;
+}
+
+.site-header nav li:last-child {
+    margin-left: auto;
 }
 
 @media (max-width: 1100px) {
     .site-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 24px;
+    }
+
+    .site-header .brand {
+        flex: none;
+        min-width: 0;
+        width: 280px;
+        max-width: 100%;
+    }
+
+    .site-header nav {
+        flex: none;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .site-header nav ul {
+        display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 20px;
+        gap: 12px 20px;
+    }
+
+    .site-header nav li:last-child {
+        margin-left: 0;
     }
 }
 
 @media (max-width: 650px) {
     .site-header {
-        padding: 15px;
-        gap: 10px;
+        position: relative;
+        padding: 16px;
+        gap: 12px;
     }
 
     .site-header .brand {
         width: 260px;
+    }
+
+    .site-header nav {
+        display: block;
+    }
+
+    .site-header nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+
+    .site-header nav a {
+        padding: 10px 16px;
+        text-align: center;
+    }
+
+    .site-header nav .share-button {
+        margin-top: 8px;
+        padding: 12px 16px;
+    }
+}
+
+@media (max-width: 650px) {
+    .site-header {
+        position: relative;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .site-header .brand {
+        width: 260px;
+    }
+
+    .site-header nav {
+        display: block;
+    }
+
+    .site-header nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+
+    .site-header nav a {
+        padding: 10px 16px;
+        text-align: center;
+    }
+
+    .site-header nav .share-button {
+        margin-top: 8px;
+        padding: 12px 16px;
     }
 }

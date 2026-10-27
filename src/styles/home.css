@@ -1,0 +1,700 @@
+* {
+    box-sizing: border-box;
+}
+
+.page-home #menu-button {
+    display: none;
+    padding: 8px 12px;
+    border: 1px solid var(--accent-color);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--accent-color);
+    font-size: 25px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.page-home main {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.page-home img {
+    max-width: 100%;
+}
+
+.page-home .brand img {
+    display: block;
+    width: 300px;
+    max-width: 100%;
+}
+
+.page-home .site-header {
+    min-height: 80px;
+    padding: 10px 4.5%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: var(--surface-background);
+    border-bottom: 1px solid #25232C;
+    position: sticky;
+    top: 0;
+    z-index: 11;
+    overflow: visible;
+}
+
+.page-home #waveform {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.page-home #waveform span {
+    width: 8px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 0px 0px 5px 5px;
+    background-color: var(--accent-color);
+    transition: height 0.05s;
+}
+
+.page-home .site-header nav {
+    margin-left: auto;
+}
+
+.page-home .site-header ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+.page-home .site-header nav a {
+    padding: 12px 0;
+    color: var(--secondary-text);
+    text-decoration: none;
+}
+
+.page-home .site-header nav a:hover,
+.page-home .site-header nav a:focus-visible,
+.page-home .site-header nav .active {
+    color: var(--accent-color);
+}
+
+.page-home .site-header nav .active {
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.page-home .site-header nav .share-button {
+    display: inline-block;
+    padding: 11px 20px;
+    color: var(--accent-color);
+    font-weight: bold;
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+}
+
+.page-home #first-section h1 {
+    color: var(--primary-text);
+    font-size: 70px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 500px;
+    max-width: 100%;
+    font-weight: bold;
+}
+
+.page-home #first-section p {
+    color: var(--accent-color);
+    width: 450px;
+    max-width: 100%;
+    font-size: 20px;
+    margin-top: -20px;
+}
+
+.page-home #searchbar {
+    width: 500px;
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: var(--surface-background);
+    color: var(--secondary-text);
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--accent-color);
+}
+
+.page-home #search-symbol {
+    font-size: 16px;
+    color: var(--accent-color);
+    position: relative;
+    top: 12px;
+}
+
+.page-home #searchbar input {
+    width: 450px;
+    padding: 15px;
+    border-radius: 30px;
+    background-color: var(--surface-background);
+    color: var(--secondary-text);
+    border: none;
+    outline: none;
+}
+
+.page-home #first-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.page-home #hero-text {
+    flex: 1;
+}
+
+.page-home .homepage-video {
+    width: 500px;
+    height: 280px;
+    border: 0;
+    border-radius: 12px;
+}
+
+.page-home .section-header {
+    border-left: 1px solid var(--accent-color);
+    font-size: 13px;
+    color: var(--accent-color);
+    padding: 5px 0 5px 5px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+    min-width: 0;
+}
+
+.page-home #browse-button {
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.page-home #browse-button a {
+    color: var(--accent-color);
+}
+
+.page-home .homepage-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+}
+
+.page-home #sotd-content {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    gap: 30px;
+}
+
+.page-home #song-description {
+    min-width: 0;
+    max-width: 100%;
+    flex: 1;
+}
+
+.page-home .song-icon {
+    max-width: 100%;
+    height: auto;
+}
+
+.page-home #sotd-content h1 {
+    color: var(--primary-text);
+}
+
+.page-home #details {
+    border-bottom: 1px solid var(--secondary-text);
+    padding-bottom: 25px;
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+.page-home #sotd-content p {
+    color: var(--secondary-text);
+}
+
+.page-home #user-username {
+    color: var(--accent-color);
+}
+
+.page-home #user-info {
+    display: flex;
+    gap: 10px;
+}
+
+.page-home .genre-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.page-home .genre-icon {
+    width: 200px;
+    height: 150px;
+    padding: 25px;
+}
+
+.page-home .genre-box {
+    border: 1px solid var(--accent-color);
+    border-radius: 30px;
+    color: var(--accent-color);
+    text-align: center;
+    background-color: var(--surface-background);
+    flex-grow: 0;
+    min-width: 0;
+    width: 175px;
+}
+
+.page-home .genre-box h3 {
+    color: var(--primary-text);
+    font-weight: bold;
+}
+
+.page-home .commingle-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    min-width: 0;
+}
+
+.page-home #left-commingle {
+    min-width: 250px;
+    flex: 1;
+}
+
+.page-home #left-commingle h1 {
+    color: var(--primary-text);
+    font-weight: bold;
+}
+
+.page-home #left-commingle p {
+    color: var(--secondary-text);
+    width: 100%;
+    max-width: 800px;
+    overflow-wrap: break-word;
+}
+
+.page-home #right-commingle {
+    border: 1px solid var(--accent-color);
+    border-radius: 30px;
+    margin-left: auto;
+    min-height: 250px;
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--surface-background);
+    min-width: 0;
+    overflow: hidden;
+}
+
+.page-home #right-commingle-header {
+    display: flex;
+    align-items: center;
+    color: var(--primary-text);
+    margin-left: 20px;
+    flex-wrap: wrap;
+}
+
+.page-home #right-commingle-header h3 {
+    color: var(--primary-text);
+}
+
+.page-home #right-commingle-header p {
+    margin-left: auto;
+    background-color: var(--accent-color);
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    margin-right: 10px;
+    color: var(--dark-text);
+}
+
+.page-home #commingle-participants {
+    display: flex;
+    align-items: center;
+    color: var(--secondary-text);
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+}
+
+.page-home #commingle-song-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.page-home #commingle-live-info h3 {
+    color: var(--primary-text);
+}
+
+.page-home #commingle-live-info p {
+    color: var(--accent-color);
+}
+
+.page-home #listener-count {
+    color: var(--accent-color);
+}
+
+.page-home #enter-commingle {
+    background-color: var(--accent-color);
+    padding: 20px;
+    border-radius: 30px;
+    width: 300px;
+    max-width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+}
+
+.page-home #share-a-song-footer {
+    margin: 0 auto;
+    margin-top: 200px;
+    align-self: center;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+.page-home #live-image {
+    margin-left: 20px;
+}
+
+.page-home #share-a-song-footer h3 {
+    color: var(--primary-text);
+    font-size: 32px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.page-home #share-a-song-footer p {
+    color: var(--secondary-text);
+    font-size: 16px;
+}
+
+.page-home #share-a-song-footer button {
+    border-radius: 30px;
+    background-color: var(--accent-color);
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+@media (max-width: 1000px) {
+    .page-home main {
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    .page-home header {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    .page-home header img {
+        height: auto;
+        width: 350px;
+        max-width: 100%;
+        margin-left: 0;
+        margin: 0 auto;
+    }
+
+    .page-home header nav {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .page-home header nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 22px;
+    }
+
+    .page-home header nav ul li {
+        margin-right: 0;
+        padding: 8px;
+    }
+
+    .page-home header button {
+        margin: 30px;
+    }
+
+    .page-home .genre-content {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .page-home .genre-box {
+        width: 40%;
+        box-sizing: border-box;
+    }
+
+    .page-home .genre-box p {
+        font-size: 12px;
+    }
+
+    .page-home .genre-icon {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 650px) {
+    .page-home main {
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    .page-home .site-header {
+        flex-wrap: wrap;
+        padding: 10px;
+        justify-content: center;
+    }
+
+    .page-home .brand img {
+        width: 260px;
+    }
+
+    .page-home #menu-button {
+        display: block;
+    }
+
+    .page-home .site-header img {
+        height: auto;
+        width: 350px;
+        max-width: 100%;
+        margin-left: 0;
+        margin: 0 auto;
+    }
+
+    .page-home .site-header nav {
+        display: none;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .page-home .site-header nav.show-menu {
+        display: block;
+    }
+
+    .page-home .site-header ul {
+        gap: 4px 14px;
+    }
+
+    .page-home .site-header nav ul {
+        padding: 20px 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .page-home .site-header nav ul li {
+        padding: 5px;
+    }
+
+    .page-home #first-section h1 {
+        width: auto;
+        font-size: 45px;
+    }
+
+    .page-home #first-section p {
+        width: auto;
+    }
+
+    .page-home #searchbar {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .page-home #searchbar input {
+        width: 100%;
+    }
+
+    .page-home .homepage-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .page-home .commingle-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .page-home #sotd-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .page-home #song-description,
+    .page-home #details {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .page-home .genre-content {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .page-home .genre-box {
+        width: 40%;
+        box-sizing: border-box;
+    }
+
+    .page-home .genre-box p {
+        font-size: 12px;
+    }
+
+    .page-home .genre-icon {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .page-home #left-commingle {
+        text-align: center;
+        width: 100%;
+    }
+
+    .page-home #left-commingle p {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .page-home #right-commingle {
+        width: 100%;
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    .page-home #right-commingle {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+
+    .page-home #share-a-song-footer {
+        width: 100%;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    .page-home #enter-commingle {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .page-home #waveform {
+        display: none;
+    }
+
+    .page-home #first-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-home .homepage-video {
+        width: 100%;
+        max-width: 100%;
+        height: 220px;
+    }
+}
+
+.page-home #searchbar {
+    align-items: center;
+    gap: 12px;
+}
+
+.page-home #search-symbol {
+    position: static;
+    line-height: 1;
+}
+
+.page-home #sotd-content {
+    display: block;
+}
+
+.page-home #sotd-content .song-post {
+    width: 100%;
+    padding: 24px;
+    background-color: var(--surface-background);
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+}
+
+.page-home #sotd-content .song-info p:last-child {
+    border-top: 1px solid currentColor;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.page-home #enter-commingle,
+.page-home #upload-first-track {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 20px;
+    width: 300px;
+    max-width: 100%;
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+}
+
+.page-home .section-header {
+    flex-wrap: nowrap;
+    gap: 12px;
+}
+
+.page-home #browse-button,
+.page-home #commingle-browse-button {
+    margin-left: auto;
+    margin-right: 30px;
+    flex-shrink: 0;
+}
+
+.page-home #browse-button a,
+.page-home #commingle-browse-button a {
+    color: var(--accent-color);
+}
+
+@media (max-width: 650px) {
+    .page-home #browse-button,
+    .page-home #commingle-browse-button {
+        margin-right: 0;
+    }
+
+    .page-home #sotd-content .song-post {
+        padding: 18px;
+    }
+}

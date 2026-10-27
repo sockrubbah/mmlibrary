@@ -1,0 +1,609 @@
+* {
+    box-sizing: border-box;
+}
+
+.page-commingle #menu-button {
+    display: none;
+    padding: 8px 12px;
+    border: 1px solid var(--accent-color);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--accent-color);
+    font-size: 25px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.page-commingle a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page-commingle button,
+.page-commingle textarea {
+    font: inherit;
+}
+
+.page-commingle button {
+    cursor: pointer;
+}
+
+.page-commingle #waveform {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.page-commingle #waveform span {
+    width: 8px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 0px 0px 5px 5px;
+    background-color: var(--accent-color);
+    transition: height 0.05s;
+}
+
+.page-commingle .site-header {
+    min-height: 80px;
+    padding: 10px 4.5%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: var(--surface-background);
+    border-bottom: 1px solid #25232C;
+    position: sticky;
+    top: 0;
+    z-index: 11;
+    overflow: visible;
+}
+
+.page-commingle .brand img {
+    display: block;
+    width: 300px;
+    max-width: 100%;
+}
+
+.page-commingle .site-header nav {
+    margin-left: auto;
+}
+
+.page-commingle .site-header ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+.page-commingle .site-header nav a {
+    padding: 12px 0;
+    color: var(--secondary-text);
+}
+
+.page-commingle .site-header nav a:hover,
+.page-commingle .site-header nav a:focus-visible,
+.page-commingle .site-header nav .active {
+    color: var(--accent-color);
+}
+
+.page-commingle .site-header nav .active {
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.page-commingle .site-header nav .share-button {
+    display: inline-block;
+    padding: 11px 20px;
+    color: var(--accent-color);
+    font-weight: bold;
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+}
+
+.page-commingle .page-intro {
+    padding: 58px 60px 40px;
+    background: transparent;
+}
+
+.page-commingle .page-intro h1 {
+    margin: 0 0 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 58px;
+}
+
+.page-commingle .page-intro p {
+    margin: 0;
+    color: var(--secondary-text);
+    font-size: 17px;
+}
+
+.page-commingle .commingle-layout {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 80px 60px;
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.page-commingle .feed-column {
+    flex: 1;
+}
+
+.page-commingle .create-post,
+.page-commingle .feed-post,
+.page-commingle .live-room,
+.page-commingle .trending ul,
+.page-commingle .follow-card {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background-color: var(--fade-background);
+    
+}
+
+.page-commingle .create-post {
+    margin-bottom: 32px;
+    padding: 24px;
+    display: flex;
+    gap: 20px;
+}
+
+.page-commingle .create-post img,
+.page-commingle .post-header img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.page-commingle .post-fields {
+    min-width: 0;
+    flex: 1;
+}
+
+.page-commingle .post-fields textarea {
+    width: 100%;
+    min-height: 42px;
+    padding: 4px 0;
+    resize: vertical;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--primary-text);
+}
+
+.page-commingle .post-fields textarea::placeholder {
+    color: var(--secondary-text);
+}
+
+.page-commingle .post-tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 24px;
+}
+
+.page-commingle .post-tools button {
+    padding: 10px 12px;
+    border: 0;
+    background: transparent;
+    color: var(--secondary-text);
+}
+
+.page-commingle .post-tools .add-track {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.page-commingle .post-tools .post-button {
+    margin-left: auto;
+    padding: 12px 20px;
+    border-radius: 6px;
+    background-color: var(--border-color);
+    font-weight: bold;
+}
+
+.page-commingle .feed-post {
+    margin-bottom: 26px;
+    padding: 22px;
+}
+
+.page-commingle .post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-commingle .post-header h2,
+.page-commingle .post-header p,
+.page-commingle .shared-track h3,
+.page-commingle .shared-track p,
+.page-commingle .live-room h2,
+.page-commingle .live-room p,
+.page-commingle .follow-card h2,
+.page-commingle .follow-card h3,
+.page-commingle .follow-card p {
+    margin: 0;
+}
+
+.page-commingle .post-header h2 {
+    font-size: 16px;
+}
+
+.page-commingle .post-header p {
+    margin-top: 3px;
+    color: var(--secondary-text);
+    font-size: 13px;
+}
+
+.page-commingle .top-digger {
+    margin-left: auto;
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.page-commingle .post-text {
+    margin: 22px 0;
+}
+
+.page-commingle .shared-track {
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--soft-surface);
+}
+
+.page-commingle .shared-track img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.page-commingle .shared-track h3 {
+    font-size: 17px;
+}
+
+.page-commingle .shared-track p {
+    margin-top: 8px;
+    color: var(--secondary-text);
+}
+
+.page-commingle .shared-track span {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    color: var(--secondary-text);
+    font-size: 13px;
+}
+
+.page-commingle .play-button {
+    width: 46px;
+    height: 46px;
+    margin-left: auto;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+    font-size: 20px;
+}
+
+.page-commingle .reactions {
+    margin-top: 18px;
+    display: flex;
+    gap: 24px;
+}
+
+.page-commingle .reactions button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--secondary-text);
+}
+
+.page-commingle .reactions button:first-child,
+.page-commingle .reactions button:first-child span {
+    color: var(--accent-color);
+}
+
+.page-commingle .live-room {
+    padding: 22px;
+}
+
+.page-commingle .live-room h2 {
+    font-size: 19px;
+}
+
+.page-commingle .live-room p {
+    margin-top: 8px;
+    color: var(--secondary-text);
+}
+
+.page-commingle .live-session {
+    margin-top: 22px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--soft-surface);
+}
+
+.page-commingle .live-session h3,
+.page-commingle .live-session p {
+    margin: 0;
+}
+
+.page-commingle .live-session p {
+    margin-top: 5px;
+    color: var(--secondary-text);
+    font-size: 13px;
+}
+
+.page-commingle .live-session a {
+    margin-left: auto;
+    padding: 10px 18px;
+    border-radius: 7px;
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+    font-weight: bold;
+}
+
+.page-commingle .sidebar {
+    width: 380px;
+}
+
+.page-commingle .sidebar h2 {
+    margin: 0 0 32px;
+    font-size: 26px;
+}
+
+.page-commingle .trending ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style: none;
+}
+
+.page-commingle .trending li {
+    min-height: 59px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-commingle .trending li:last-child {
+    border-bottom: 0;
+}
+
+.page-commingle .trending span {
+    color: var(--accent-color);
+    font-size: 13px;
+}
+
+.page-commingle .follow-card {
+    margin-top: 32px;
+    padding: 24px;
+}
+
+.page-commingle .follow-card h2 {
+    margin-bottom: 22px;
+    font-size: 20px;
+}
+
+.page-commingle .follow-card article {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.page-commingle .follow-card img {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.page-commingle .follow-card h3 {
+    font-size: 15px;
+}
+
+.page-commingle .follow-card p {
+    margin-top: 3px;
+    color: var(--secondary-text);
+    font-size: 11px;
+}
+
+.page-commingle .follow-card button {
+    margin-left: auto;
+    padding: 7px 12px;
+    border: 1px solid var(--accent-color);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@media (max-width: 1000px) {
+    .page-commingle .site-header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .page-commingle .site-header nav {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .page-commingle .site-header ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 22px;
+    }
+
+    .page-commingle .page-intro {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
+    .page-commingle .page-intro h1 {
+        font-size: 50px;
+    }
+
+    .page-commingle .commingle-layout {
+        padding: 60px 35px;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-commingle .brand img {
+        width: 260px;
+    }
+
+    .page-commingle .site-header nav .share-button {
+        padding: 8px 12px;
+    }
+
+    .page-commingle .page-intro {
+        padding: 48px 20px 34px;
+    }
+
+    .page-commingle .page-intro h1 {
+        font-size: 44px;
+    }
+
+    .page-commingle .commingle-layout {
+        padding: 45px 20px;
+        flex-direction: column;
+    }
+
+    .page-commingle .feed-column,
+    .page-commingle .sidebar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 650px) {
+    .page-commingle .site-header {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    .page-commingle .site-header img {
+        height: auto;
+        width: 350px;
+        max-width: 100%;
+        margin-left: 0;
+        margin: 0 auto;
+    }
+
+    .page-commingle .site-header nav {
+        display: none;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .page-commingle .site-header nav.show-menu {
+        display: block;
+    }
+
+    .page-commingle .site-header nav ul {
+        padding: 20px 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .page-commingle .site-header nav ul li {
+        padding: 5px;
+    }
+
+    .page-commingle .site-header button {
+        margin: 30px;
+    }
+
+    .page-commingle .site-header ul {
+        gap: 4px 14px;
+    }
+
+    .page-commingle .create-post {
+        padding: 18px;
+        gap: 12px;
+    }
+
+    .page-commingle .post-tools {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    .page-commingle .post-tools .post-button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .page-commingle .top-digger {
+        width: 100%;
+        margin: 12px 0 0 50px;
+    }
+
+    .page-commingle .post-header {
+        flex-wrap: wrap;
+    }
+
+    .page-commingle .shared-track {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .page-commingle .shared-track img {
+        width: 100%;
+        height: auto;
+    }
+
+    .page-commingle .play-button {
+        margin-left: auto;
+    }
+
+    .page-commingle .live-session {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .page-commingle .live-session a {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .page-commingle #waveform {
+        display: none;
+    }
+
+    .page-commingle #menu-button {
+        display: block;
+    }
+
+
+}

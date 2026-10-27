@@ -1,0 +1,467 @@
+* {
+    box-sizing: border-box;
+}
+
+.page-about {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+.page-about #menu-button {
+    display: none;
+    padding: 8px 12px;
+    border: 1px solid var(--accent-color);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--accent-color);
+    font-size: 25px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.page-about a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page-about #waveform {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.page-about #waveform span {
+    width: 8px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 0px 0px 5px 5px;
+    background-color: var(--accent-color);
+    transition: height 0.05s;
+}
+
+.page-about .site-header {
+    min-height: 80px;
+    padding: 10px 4.5%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: var(--surface-background);
+    border-bottom: 1px solid #25232C;
+    position: sticky;
+    top: 0;
+    z-index: 11;
+    overflow: visible;
+}
+
+.page-about .brand img {
+    display: block;
+    width: 300px;
+    max-width: 100%;
+}
+
+.page-about .site-header nav {
+    margin-left: auto;
+}
+
+.page-about .site-header ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+.page-about .site-header nav a {
+    padding: 12px 0;
+    color: var(--secondary-text);
+}
+
+.page-about .site-header nav a:hover,
+.page-about .site-header nav a:focus-visible,
+.page-about .site-header nav .active {
+    color: var(--accent-color);
+}
+
+.page-about .site-header nav .active {
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.page-about .site-header nav .share-button {
+    display: inline-block;
+    padding: 11px 20px;
+    color: var(--accent-color);
+    font-weight: bold;
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+}
+
+.page-about main {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.page-about .eyebrow {
+    margin: 0 0 34px;
+    padding: 7px 16px;
+    border-radius: 18px;
+    background-color: #29321B;
+    color: var(--accent-color);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.page-about .manifesto {
+    min-height: 550px;
+    padding: 100px 24px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-about .manifesto h1 {
+    max-width: 880px;
+    margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 72px;
+    text-align: center;
+}
+
+.page-about .manifesto-text {
+    max-width: 720px;
+    margin: 35px auto 0;
+    color: var(--secondary-text);
+    font-size: 18px;
+}
+
+.page-about .principles {
+    min-height: 500px;
+    padding: 75px 60px;
+}
+
+.page-about .principles h2,
+.page-about .curator-callout h2 {
+    margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 48px;
+}
+
+.page-about .principle-list {
+    margin-top: 58px;
+    display: flex;
+    gap: 40px;
+}
+
+.page-about .principle-card {
+    min-height: 220px;
+    padding: 30px;
+    flex: 1;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background-color: rgba(18, 17, 22, 1);
+    text-align: left;
+}
+
+.page-about .icon-circle {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #263019;
+}
+
+.page-about .icon-circle img {
+    width: 22px;
+    height: 22px;
+}
+
+.page-about .principle-card h3 {
+    margin: 22px 0 18px;
+    font-size: 21px;
+}
+
+.page-about .principle-card p {
+    margin: 0;
+    color: var(--secondary-text);
+    line-height: 1.5;
+}
+
+.page-about .community-stats {
+    padding: 65px 60px;
+    width: 100%;
+    margin: 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--soft-surface);
+}
+
+.page-about .community-stats dl {
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+}
+
+.page-about .community-stats div {
+    flex: 1;
+}
+
+.page-about .community-stats dt {
+    color: var(--accent-color);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 64px;
+    font-weight: bold;
+}
+
+.page-about .community-stats dd {
+    margin: 14px 0 0;
+    color: var(--secondary-text);
+    font-size: 16px;
+}
+
+.page-about .curator-callout {
+    min-height: 430px;
+    padding: 100px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--page-background);
+}
+
+.page-about .curator-callout h2 {
+    max-width: 650px;
+}
+
+.page-about .curator-callout p {
+    max-width: 640px;
+    margin: 30px 0;
+    color: var(--secondary-text);
+}
+
+.page-about .contact-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.page-about #contact-modal {
+    width: min(90%, 500px);
+    padding: 30px;
+    color: var(--primary-text);
+    background-color: var(--surface-background);
+    border: 1px solid var(--accent-color);
+    border-radius: 12px;
+}
+
+.page-about #contact-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.page-about #contact-modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.page-about #contact-modal input,
+.page-about #contact-modal textarea {
+    padding: 10px;
+    color: var(--primary-text);
+    background-color: #1A1820;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.page-about #contact-modal textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.page-about #contact-modal form button {
+    margin-top: 10px;
+    padding: 12px;
+    color: var(--dark-text);
+    background-color: var(--accent-color);
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.page-about #close-contact {
+    float: right;
+    color: var(--primary-text);
+    background: transparent;
+    border: 0;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.page-about .hidden {
+    display: none;
+}
+
+.page-about .form-feedback {
+    min-height: 42px;
+    margin-top: 15px;
+    padding: 11px 14px;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.page-about .form-feedback.success {
+    color: #C3FF1A;
+    background-color: #303725;
+    border: 1px solid #C3FF1A;
+}
+
+.page-about .form-feedback.error {
+    color: #ffb4b4;
+    background-color: #431e25;
+    border: 1px solid #ff7777;
+}
+
+@media (max-width: 1000px) {
+    .page-about .site-header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .page-about .site-header nav {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .page-about .site-header ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 22px;
+    }
+
+    .page-about .principles {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .page-about .principle-list {
+        gap: 22px;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-about .brand img {
+        width: 260px;
+    }
+
+    .page-about .site-header nav .share-button {
+        padding: 8px 12px;
+    }
+
+    .page-about .manifesto {
+        min-height: auto;
+        padding: 75px 20px;
+    }
+
+    .page-about .manifesto h1 {
+        font-size: 58px;
+    }
+
+    .page-about .principles {
+        padding: 60px 20px;
+    }
+
+    .page-about .principle-list,
+    .page-about .community-stats dl {
+        flex-direction: column;
+    }
+
+    .page-about .principle-list {
+        margin-top: 42px;
+    }
+
+    .page-about .community-stats {
+        padding: 55px 20px;
+    }
+
+    .page-about .community-stats dl {
+        gap: 45px;
+    }
+
+    .page-about .curator-callout {
+        min-height: auto;
+        padding: 80px 20px;
+    }
+}
+
+@media (max-width: 650px) {
+    .page-about .site-header {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    .page-about .site-header img {
+        height: auto;
+        width: 350px;
+        max-width: 100%;
+        margin-left: 0;
+        margin: 0 auto;
+    }
+
+    .page-about .site-header nav {
+        display: none;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .page-about .site-header nav.show-menu {
+        display: block;
+    }
+
+    .page-about .site-header nav ul {
+        padding: 20px 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .page-about .site-header nav ul li {
+        padding: 5px;
+    }
+
+    .page-about .site-header button {
+        margin: 30px;
+    }
+
+    .page-about .site-header ul {
+        gap: 4px 14px;
+    }
+
+    .page-about #waveform {
+        display: none;
+    }
+
+    .page-about #menu-button {
+        display: block;
+    }
+}

@@ -1,0 +1,785 @@
+* {
+    box-sizing: border-box;
+}
+
+.page-post #menu-button {
+    display: none;
+    padding: 8px 12px;
+    border: 1px solid var(--accent-color);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--accent-color);
+    font-size: 25px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.page-post a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page-post button,
+.page-post textarea {
+    font: inherit;
+}
+
+.page-post button {
+    cursor: pointer;
+    padding: 10px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 7px;
+    background-color: var(--soft-surface);
+    color: var(--primary-text);
+    font: inherit;
+}
+
+.page-post #waveform {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.page-post #waveform span {
+    width: 8px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 0px 0px 5px 5px;
+    background-color: var(--accent-color);
+    transition: height 0.05s;
+}
+
+.page-post .site-header {
+    min-height: 80px;
+    padding: 10px 4.5%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: var(--surface-background);
+    border-bottom: 1px solid #25232C;
+    position: sticky;
+    top: 0;
+    z-index: 11;
+    overflow: visible;
+}
+
+.page-post .brand img {
+    display: block;
+    width: 300px;
+    max-width: 100%;
+}
+
+.page-post .site-header nav {
+    margin-left: auto;
+}
+
+.page-post .site-header ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+.page-post .site-header nav a {
+    padding: 12px 0;
+    color: var(--secondary-text);
+}
+
+.page-post .site-header nav a:hover,
+.page-post .site-header nav a:focus-visible,
+.page-post .site-header nav .active {
+    color: var(--accent-color);
+}
+
+.page-post .site-header nav .active {
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.page-post .site-header nav .share-button {
+    display: inline-block;
+    padding: 11px 20px;
+    color: var(--accent-color);
+    font-weight: bold;
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+}
+
+.page-post .page-heading {
+    padding: 42px 60px 55px;
+    background: transparent;
+}
+
+.page-post .page-heading p {
+    margin: 0 0 14px;
+    color: var(--secondary-text);
+}
+
+.page-post .page-heading p a {
+    color: var(--accent-color);
+}
+
+.page-post .page-heading p span {
+    margin: 0 8px;
+}
+
+.page-post .page-heading h1 {
+    margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 46px;
+}
+
+.page-post .post-layout {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 60px 80px;
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.page-post .main-column {
+    min-width: 0;
+    flex: 1;
+}
+
+.page-post .featured-post,
+.page-post .reply-form,
+.page-post .comment,
+.page-post .follow-card,
+.page-post .trending ul {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background-color: var(--page-background);
+}
+
+.page-post .featured-post {
+    padding: 30px;
+}
+
+.page-post .post-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.page-post .post-author img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.page-post .post-author h2,
+.page-post .post-author p {
+    margin: 0;
+}
+
+.page-post .post-author h2 {
+    font-size: 17px;
+}
+
+.page-post .post-author p {
+    margin-top: 4px;
+    color: var(--secondary-text);
+    font-size: 13px;
+}
+
+.page-post .top-digger {
+    margin-left: auto;
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.page-post .post-message {
+    margin: 28px 0;
+    font-size: 18px;
+}
+
+.page-post .audio-card {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--soft-surface);
+}
+
+.page-post .audio-card img {
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.page-post .audio-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.page-post .audio-info h3,
+.page-post .audio-info p {
+    margin: 0;
+}
+
+.page-post .audio-info h3 {
+    font-size: 24px;
+}
+
+.page-post .audio-info p {
+    margin-top: 6px;
+    color: var(--secondary-text);
+}
+
+.page-post .track-tags {
+    margin-top: 18px;
+    display: flex;
+    gap: 9px;
+}
+
+.page-post .track-tags span {
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    color: var(--secondary-text);
+    font-size: 13px;
+}
+
+.page-post .progress-row {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--secondary-text);
+    font-size: 12px;
+}
+
+.page-post .progress-row time:first-child {
+    color: var(--accent-color);
+}
+
+.page-post .progress-bar {
+    height: 6px;
+    flex: 1;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #2C2935;
+}
+
+.page-post .progress-bar span {
+    display: block;
+    width: 45%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: var(--accent-color);
+}
+
+.page-post .play-button {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+    font-size: 24px;
+}
+
+.page-post .reactions {
+    margin-top: 22px;
+    display: flex;
+    gap: 28px;
+}
+
+.page-post .reactions button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--secondary-text);
+}
+
+.page-post .reactions button:first-child,
+.page-post .reactions button:first-child span {
+    color: var(--accent-color);
+}
+
+.page-post .discussion-heading {
+    margin: 32px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.page-post .discussion-heading h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.page-post .discussion-heading button {
+    border: 0;
+    background: none;
+    color: var(--accent-color);
+}
+
+.page-post .reply-form {
+    margin-bottom: 32px;
+    padding: 24px;
+}
+
+.page-post .reply-form .static-field {
+    margin-top: 18px;
+    padding: 16px;
+    min-height: 90px;
+    background-color: var(--soft-surface);
+    color: var(--secondary-text);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.page-post .reply-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.page-post .reply-user img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.page-post .reply-form textarea {
+    width: 100%;
+    margin-top: 18px;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: 0;
+    background-color: var(--soft-surface);
+    color: var(--primary-text);
+}
+
+.page-post .reply-form textarea:focus {
+    border-color: var(--accent-color);
+}
+
+.page-post .reply-actions {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.page-post .reply-actions button {
+    padding: 9px 16px;
+    border: 0;
+    background: none;
+    color: var(--secondary-text);
+}
+
+.page-post .reply-actions button:last-child {
+    border-radius: 7px;
+    margin-left: auto;
+    background-color: var(--accent-color);
+    color: var(--dark-text);
+    font-weight: bold;
+}
+
+.page-post .comment {
+    margin-bottom: 16px;
+    padding: 20px;
+}
+
+.page-post .comment header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-post .comment header img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.page-post .comment h3,
+.page-post .comment time,
+.page-post .comment p {
+    margin: 0;
+}
+
+.page-post .comment h3 {
+    font-size: 15px;
+}
+
+.page-post .comment h3 span {
+    margin-left: 7px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background-color: #2B3617;
+    color: var(--accent-color);
+    font-size: 9px;
+}
+
+.page-post .comment time {
+    display: block;
+    margin-top: 3px;
+    color: var(--secondary-text);
+    font-size: 12px;
+}
+
+.page-post .comment header button {
+    margin-left: auto;
+    border: 0;
+    background: none;
+    color: var(--accent-color);
+}
+
+.page-post .comment p {
+    margin-top: 18px;
+}
+
+.page-post .sidebar {
+    width: 380px;
+    flex-shrink: 0;
+}
+
+.page-post .follow-card {
+    padding: 24px;
+}
+
+.page-post .sidebar h2 {
+    margin: 0 0 24px;
+    font-size: 20px;
+}
+
+.page-post .follow-card article {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.page-post .follow-card img {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.page-post .follow-card h3,
+.page-post .follow-card p {
+    margin: 0;
+}
+
+.page-post .follow-card h3 {
+    font-size: 15px;
+}
+
+.page-post .follow-card p {
+    margin-top: 3px;
+    color: var(--secondary-text);
+    font-size: 11px;
+}
+
+.page-post .follow-card button {
+    margin-left: auto;
+    padding: 7px 12px;
+    border: 1px solid var(--accent-color);
+    border-radius: 6px;
+    border-color: var(--accent-color);
+    background: none;
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.page-post .trending {
+    margin-top: 34px;
+}
+
+.page-post .trending ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: var(--surface-background);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.page-post .trending li {
+    min-height: 59px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-post .trending li:last-child {
+    border-bottom: none;
+}
+
+.page-post .trending span {
+    color: var(--accent-color);
+    font-size: 13px;
+}
+
+.page-post .site-footer {
+    width: 100%;
+    margin: 0;
+    padding: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    background-color: var(--surface-background);
+    border-top: 1px solid var(--border-color);
+    text-align: left;
+
+}
+
+.page-post .site-footer div {
+    flex: 1 1 300px;
+    margin-right: auto;
+}
+
+.page-post .site-footer h2,
+.page-post .site-footer h3,
+.page-post .site-footer p {
+    margin: 0;
+}
+
+.page-post .site-footer h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 27px;
+    margin: 0;
+    color: var(--primary-text);
+}
+
+.page-post .site-footer p {
+    color: var(--secondary-text);
+    line-height: 1.6;
+}
+
+.page-post .site-footer h3 {
+    font-size: 14px;
+}
+
+.page-post .site-footer nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.page-post .site-footer nav a {
+    display: block;
+    margin: 0;
+    color: var(--secondary-text);
+}
+
+@media (max-width: 1000px) {
+    .page-post .site-header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .page-post .site-header nav {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .page-post .site-header ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 22px;
+    }
+
+    .page-post .page-heading {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
+    .page-post .post-layout {
+        padding: 40px 35px 70px;
+        gap: 35px;
+    }
+
+    .page-post .sidebar {
+        width: 310px;
+    }
+
+    .page-post .site-footer {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-post .brand img {
+        width: 260px;
+    }
+
+    .page-post .site-header nav .share-button {
+        padding: 8px 12px;
+    }
+
+    .page-post .page-heading {
+        padding: 40px 20px;
+    }
+
+    .page-post .post-layout {
+        padding: 35px 20px 60px;
+        flex-direction: column;
+    }
+
+    .page-post .main-column,
+    .page-post .sidebar {
+        width: 100%;
+    }
+
+    .page-post .audio-card {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .page-post .audio-info {
+        min-width: 60%;
+    }
+
+    .page-post .play-button {
+        margin-left: auto;
+    }
+
+    .page-post .site-footer {
+        padding: 55px 20px;
+        flex-wrap: wrap;
+    }
+
+    .page-post .site-footer div {
+        width: 100%;
+    }
+}
+
+@media (max-width: 650px) {
+    .page-post .site-header {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    .page-post .site-header img {
+        height: auto;
+        width: 350px;
+        max-width: 100%;
+        margin-left: 0;
+        margin: 0 auto;
+    }
+
+    .page-post .site-header nav {
+        display: none;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .page-post .site-header nav.show-menu {
+        display: block;
+    }
+
+    .page-post .site-header ul {
+        gap: 4px 14px;
+    }
+
+    .page-post .site-header nav ul {
+        padding: 20px 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .page-post .site-header nav ul li {
+        padding: 5px;
+    }
+
+    .page-post .site-header button {
+        margin: 30px;
+    }
+
+    .page-post .featured-post {
+        padding: 22px;
+    }
+
+    .page-post .post-author {
+        flex-wrap: wrap;
+    }
+
+    .page-post .top-digger {
+        width: 100%;
+        margin: 10px 0 0 60px;
+    }
+
+    .page-post .audio-card {
+        display: block;
+    }
+
+    .page-post .audio-card img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .page-post .play-button {
+        margin-top: 20px;
+    }
+
+    .page-post .progress-row {
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+
+    .page-post .progress-bar {
+        flex-basis: 100%;
+        order: 3;
+    }
+
+    .page-post #waveform {
+        display: none;
+    }
+
+    .page-post #menu-button {
+        display: block;
+    }
+
+    .page-post .discussion-heading,
+    .page-post .comment header,
+    .page-post .follow-card article {
+        flex-wrap: wrap;
+    }
+
+    .page-post .site-footer {
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .page-post .reply-actions button {
+        width: 100%;
+        margin-left: 0;
+    }
+}
