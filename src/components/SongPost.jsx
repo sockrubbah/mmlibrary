@@ -8,7 +8,7 @@ function SongPost() {
             <Link to="/post">
                 <img
                     src={`${process.env.PUBLIC_URL}/${song.artwork}`}
-                    alt={`${song.title} artwork`}/>
+                    alt={`${song.title} artwork`} />
             </Link>
 
             <div className="song-info">
