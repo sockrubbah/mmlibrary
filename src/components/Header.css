@@ -126,7 +126,18 @@ main {
     margin-left: auto;
 }
 
+.mobile-nav {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
 @media (max-width: 1100px) {
+
+    .mobile-nav {
+        display: none;
+    }
+
     .site-header {
         flex-direction: column;
         align-items: center;
@@ -160,38 +171,10 @@ main {
 }
 
 @media (max-width: 650px) {
-    .site-header {
-        position: relative;
-        padding: 16px;
-        gap: 12px;
-    }
-
-    .site-header .brand {
-        width: 260px;
-    }
-
-    .site-header nav {
+    .mobile-nav {
         display: block;
     }
 
-    .site-header nav ul {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 6px;
-    }
-
-    .site-header nav a {
-        padding: 10px 16px;
-        text-align: center;
-    }
-
-    .site-header nav .share-button {
-        margin-top: 8px;
-        padding: 12px 16px;
-    }
-}
-
-@media (max-width: 650px) {
     .site-header {
         position: relative;
         padding: 16px;

@@ -1,29 +1,36 @@
 import Waveform from "./Waveform";
 import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
-
+import { useState } from "react";
 
 function Header() {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const mobileNav = () => {
+        setMenuOpen(!menuOpen);
+    }
+
     return (
-    <header className="site-header">
-        <Link className="brand" to="/" aria-label="Music Multiverse home">
-            <img src={`${process.env.PUBLIC_URL}/images_working/logo.svg`} alt="Music Multiverse"/>
-        </Link>
+        <header className="site-header">
+            <Link className="brand" to="/" aria-label="Music Multiverse home">
+                <img src={`${process.env.PUBLIC_URL}/images_working/logo.svg`} alt="Music Multiverse" />
+            </Link>
 
-
-
-        <nav aria-label="Main navigation" className="main-nav">
-            <ul>
-                <li><NavLink to="/" end>Home</NavLink></li>
-                <li><NavLink to="/browse">Browse</NavLink></li>
-                <li><NavLink to="/commingle">Commingle</NavLink></li>
-                <li><NavLink to="/profile">Profile</NavLink></li>
-                <li><NavLink to="/about">About</NavLink></li>
-                <li><NavLink to="/share" className={({ isActive }) => `share-button${isActive ? ' active' : ''}`}>+ Share a Song</NavLink></li>
-            </ul>
-        </nav>
-        <Waveform/>
-    </header>
+            <nav aria-label="Main navigation" className="main-nav">
+                <a id="mobile-nav" onClick={mobileNav} href="#">
+                    {menuOpen ? (<p>&#8963;</p>) : (<p>&#8964;</p>)}
+                </a>
+                <ul className={menuOpen ? "" : "hideNav"}>
+                    <li><NavLink to="/" end>Home</NavLink></li>
+                    <li><NavLink to="/browse">Browse</NavLink></li>
+                    <li><NavLink to="/commingle">Commingle</NavLink></li>
+                    <li><NavLink to="/profile">Profile</NavLink></li>
+                    <li><NavLink to="/about">About</NavLink></li>
+                    <li><NavLink to="/share" className={({ isActive }) => `share-button${isActive ? ' active' : ''}`}>+ Share a Song</NavLink></li>
+                </ul>
+            </nav>
+            <Waveform />
+        </header>
     );
 }
 
