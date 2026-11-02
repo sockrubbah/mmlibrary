@@ -1,5 +1,7 @@
 import "./Display.css";
 import { useState } from "react";
+import { Tooltip } from "react-tooltip";
+import "../styles/tooltip.css";
 
 const videos = [
     {
@@ -38,7 +40,9 @@ const Display = () => {
                     className="slide-arrow"
                     type="button"
                     onClick={slideBackward}
-                    aria-label="Previous video">
+                    aria-label="Previous video"
+                    data-tooltip-id="music-tooltip"
+                    data-tooltip-content="Previous video">
                     ❮
                 </button>
                 <iframe
@@ -46,19 +50,18 @@ const Display = () => {
                     className="homepage-video"
                     src={currentSlide.url}
                     title={currentSlide.title}
-                    allowFullScreen/>
+                    allowFullScreen />
                 <button
                     className="slide-arrow"
                     type="button"
                     onClick={slideForward}
-                    aria-label="Next video">
-                        ❯
+                    aria-label="Next video"
+                    data-tooltip-id="music-tooltip"
+                    data-tooltip-content="Next video">
+                    ❯
                 </button>
             </div>
-
-            <p className="slide-position" aria-live="polite">
-                {slideIndex + 1} / {videos.length}
-            </p>
+            <Tooltip id="music-tooltip" className="music-tooltip" />
         </section>
     );
 };
