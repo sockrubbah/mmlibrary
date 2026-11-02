@@ -1,0 +1,35 @@
+.video-slideshow {
+    width: 100%;
+    min-width: 0;
+}
+
+.video-slideshow-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.video-slideshow .homepage-video {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    border: 0;
+}
+
+.slide-arrow {
+    flex-shrink: 0;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    color: var(--accent-color, --accent-color);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.slide-position {
+    text-align: center;
+    margin-top: 24px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

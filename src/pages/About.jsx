@@ -1,6 +1,10 @@
+import { useRef } from "react";
 import "../styles/about.css";
+import Contact from "../components/Contact";
 
 function About() {
+  const contactRef = useRef(null);
+
   return (
     <div className="page-about">
       <main>
@@ -23,7 +27,7 @@ function About() {
               <span className="icon-circle">
                 <img
                   src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-                  alt=""/>
+                  alt="" />
               </span>
               <h3>No Algorithms</h3>
               <p>
@@ -36,7 +40,7 @@ function About() {
               <span className="icon-circle">
                 <img
                   src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-                  alt=""/>
+                  alt="" />
               </span>
               <h3>Zero Ads</h3>
               <p>
@@ -49,7 +53,7 @@ function About() {
               <span className="icon-circle">
                 <img
                   src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-                  alt=""/>
+                  alt="" />
               </span>
               <h3>Artist Direct</h3>
               <p>
@@ -87,10 +91,11 @@ function About() {
             className="contact-button"
             id="open-contact"
             type="button"
-            disabled
-            title="Static preview">
+            onClick={() => contactRef.current.showModal()}
+          >
             Contact Us!
           </button>
+          <Contact dialogRef={contactRef} />
         </section>
       </main>
     </div>

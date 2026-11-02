@@ -2,6 +2,7 @@ import song from "../components/fillerSong";
 import { Link } from "react-router-dom";
 import SongPost from "../components/SongPost";
 import "../styles/home.css";
+import Display from "../components/Display";
 
 function Home() {
   return (
@@ -25,10 +26,7 @@ function Home() {
             </div>
           </div>
 
-          <img
-            className="homepage-video"
-            src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-            alt={`${song.title} featured artwork`}/>
+          <Display />
         </section>
 
         <section className="section-header">
@@ -37,7 +35,7 @@ function Home() {
 
         <section className="homepage-content">
           <div id="sotd-content">
-            <SongPost/>
+            <SongPost />
           </div>
         </section>
 
@@ -53,7 +51,7 @@ function Home() {
             <img
               className="genre-icon"
               src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-              alt="Headphones icon"/>
+              alt="Headphones icon" />
             <h3>Lo-fi</h3>
             <p className="genre-desc">Shared by @chillbeats</p>
           </div>
@@ -62,7 +60,7 @@ function Home() {
             <img
               className="genre-icon"
               src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-              alt="Violin icon"/>
+              alt="Violin icon" />
             <h3>Indie Rock</h3>
             <p className="genre-desc">Shared by @indiemusic</p>
           </div>
@@ -71,7 +69,7 @@ function Home() {
             <img
               className="genre-icon"
               src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-              alt="Microphone icon"/>
+              alt="Microphone icon" />
             <h3>Jazz</h3>
             <p className="genre-desc">Shared by @jazzmaster</p>
           </div>
@@ -80,7 +78,7 @@ function Home() {
             <img
               className="genre-icon"
               src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-              alt="Electronic music icon"/>
+              alt="Electronic music icon" />
             <h3>Electronic</h3>
             <p className="genre-desc">Shared by @technozone</p>
           </div>
@@ -89,7 +87,7 @@ function Home() {
             <img
               className="genre-icon"
               src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-              alt="Speaker icon"/>
+              alt="Speaker icon" />
             <h3>Hip Hop</h3>
             <p className="genre-desc">Shared by @hiphopcentral</p>
           </div>
@@ -98,7 +96,7 @@ function Home() {
             <img
               className="genre-icon"
               src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-              alt="Classical music icon"/>
+              alt="Classical music icon" />
             <h3>Classical</h3>
             <p className="genre-desc">Shared by @classical</p>
           </div>
@@ -128,7 +126,7 @@ function Home() {
             <div id="right-commingle-header">
               <h3>
                 The Daily Groove
-                <br/>
+                <br />
                 <span id="listener-count">1,240 listeners</span>
               </h3>
               <p>LIVE NOW</p>
@@ -138,7 +136,7 @@ function Home() {
               <img
                 id="live-image"
                 src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-                alt={`${song.title} artwork`}/>
+                alt={`${song.title} artwork`} />
               <div id="commingle-live-info">
                 <h3>{song.title}</h3>
                 <p>{song.artist}</p>
@@ -150,7 +148,7 @@ function Home() {
               <img
                 className="commingle-icon"
                 src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-                alt="Listening group icons"/>
+                alt="Listening group icons" />
             </p>
           </div>
         </section>

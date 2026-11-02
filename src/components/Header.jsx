@@ -6,10 +6,6 @@ import { useState } from "react";
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const mobileNav = () => {
-        setMenuOpen(!menuOpen);
-    }
-
     return (
         <header className="site-header">
             <Link className="brand" to="/" aria-label="Music Multiverse home">
@@ -17,16 +13,22 @@ function Header() {
             </Link>
 
             <nav aria-label="Main navigation" className="main-nav">
-                <a id="mobile-nav" onClick={mobileNav} href="#">
-                    {menuOpen ? (<p>&#8963;</p>) : (<p>&#8964;</p>)}
-                </a>
-                <ul className={menuOpen ? "" : "hideNav"}>
+                <button
+                    id="mobile-nav"
+                    type="button"
+                    onClick={() => setMenuOpen((open) => !open)}
+                    aria-expanded={menuOpen}
+                    aria-controls="navigation-links"
+                    aria-label={menuOpen ? "Close navigation" : "Open navigation"}>
+                    {menuOpen ? "⌃" : "⌄"}
+                </button>
+                <ul id="navigation-links" className={menuOpen ? "nav-open" : ""} onClick={() => setMenuOpen(false)}>
                     <li><NavLink to="/" end>Home</NavLink></li>
                     <li><NavLink to="/browse">Browse</NavLink></li>
                     <li><NavLink to="/commingle">Commingle</NavLink></li>
                     <li><NavLink to="/profile">Profile</NavLink></li>
                     <li><NavLink to="/about">About</NavLink></li>
-                    <li><NavLink to="/share" className={({ isActive }) => `share-button${isActive ? ' active' : ''}`}>+ Share a Song</NavLink></li>
+                    <li><NavLink to="/share" className={({ isActive }) => `share-button${isActive ? " active" : ""}`}>+ Share a Song</NavLink></li>
                 </ul>
             </nav>
             <Waveform />
