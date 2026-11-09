@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import "../styles/songpost.css";
 
-const API_LINK = "https://musicmultiversebackend.onrender.com/";
-
 function SongPost({ song, apiLink }) {
     if (!song) return null;
 
     return (
         <article className="song-post">
-            <Link to={`/post/${song._id}`}>
+            <Link to={`/posts/${song._id}`}>
                 {song.song_picture && (
                     <img
                         src={
@@ -23,7 +21,7 @@ function SongPost({ song, apiLink }) {
             </Link>
             <div className="song-info">
                 <h2>
-                    <Link to={`/post/${song._id}`}>
+                    <Link to={`/posts/${song._id}`}>
                         {song.song_name}
                     </Link>
                 </h2>

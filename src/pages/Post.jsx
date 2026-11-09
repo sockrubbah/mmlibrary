@@ -20,37 +20,29 @@ function Post() {
       setError("");
       setSong(null);
 
-      console.log("🔍 Looking for post with ID from URL:", id);
-
       try {
         const response = await fetch(`${API_LINK}/api/songs`);
-        console.log("📡 Fetch response status:", response.status);
 
         if (!response.ok) {
-          throw new Error("Could not load posts from server.");
+          throw new Error("Could not load the post.");
         }
 
         const songs = await response.json();
-        console.log("🎵 Total songs fetched from backend:", songs.length);
-        console.log("📝 All fetched song IDs:", songs.map(s => s._id));
 
         const selectedSong = songs.find(
-          (item) => String(item._id) === String(id)
+          (item) => String(item._id) === id
         );
 
-        console.log("🎯 Selected song found:", selectedSong);
-
         if (!selectedSong) {
-          throw new Error(`Post not found for ID: ${id}`);
+          throw new Error("Post not found.");
         }
 
         if (!ignore) {
           setSong(selectedSong);
         }
-      } catch (err) {
-        console.error("❌ Error loading song:", err);
+      } catch (error) {
         if (!ignore) {
-          setError(err.message);
+          setError(error.message);
         }
       } finally {
         if (!ignore) {
@@ -71,10 +63,8 @@ function Post() {
   }
 
   if (error) {
-    return <p style={{ color: "red" }}>Error: {error}</p>;
+    return <p>{error}</p>;
   }
-
-  if (!song) return <p>No song data available.</p>;
 
   const comments = song.comments || [];
   return (
@@ -103,7 +93,8 @@ function Post() {
               <section className="reply-form">
                 <div className="reply-user">
                   <img
-                    src={`${API_LINK}/images/current-user.svg`}
+                    src={`${API_LINK
+                      }/images/current-user.svg`}
                     alt="Your profile"
                   />
                   <strong>@you</strong>
@@ -163,7 +154,8 @@ function Post() {
 
               <article>
                 <img
-                  src={`${API_LINK}/images/acid-jerk.svg`}
+                  src={`${API_LINK
+                    }/images/acid-jerk.svg`}
                   alt="Acid Jerk profile picture" />
                 <div>
                   <h3>@acid_jerk</h3>
@@ -174,7 +166,8 @@ function Post() {
 
               <article>
                 <img
-                  src={`${API_LINK}/images/shoegazer-99.svg`}
+                  src={`${API_LINK
+                    }/images/shoegazer-99.svg`}
                   alt="Shoegazer 99 profile picture" />
                 <div>
                   <h3>@shoegazer_99</h3>

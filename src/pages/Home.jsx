@@ -2,11 +2,45 @@ import song from "../components/fillerSong";
 import { Link } from "react-router-dom";
 import SongPost from "../components/SongPost";
 import "../styles/home.css";
+import { useEffect, useState } from "react";
 import Display from "../components/Display";
 
-const API_LINK = "https://musicmultiversebackend.onrender.com/";
+const API_LINK = "https://musicmultiversebackend.onrender.com";
 
 function Home() {
+  const [songs, setSongs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [randomSotd, setRandomSotd] = useState(null);
+
+  useEffect(() => {
+    async function fetchHomeData() {
+      try {
+        setLoading(true);
+        const response = await fetch(`${API_LINK}/api/songs`);
+        if (!response.ok) throw new Error("Failed to fetch songs");
+        const data = await response.json();
+
+        setSongs(data);
+
+        if (data.length > 0) {
+          const officialSotd = data.find((s) => s.song_of_the_day);
+          const chosenSong = officialSotd || data[Math.floor(Math.random() * data.length)];
+          setRandomSotd(chosenSong);
+        }
+      } catch (err) {
+        console.error("Error loading home data:", err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchHomeData();
+  }, []);
+
+  const featuredSong = songs.length > 0 ? songs[0] : null;
+
   return (
     <div className="page-home">
       <main>
@@ -37,7 +71,14 @@ function Home() {
 
         <section className="homepage-content">
           <div id="sotd-content">
-            <SongPost />
+            {loading && <p>Loading featured track...</p>}
+            {error && <p style={{ color: "red" }}>Error: {error}</p>}
+
+            {!loading && randomSotd && (
+              <div>
+                <SongPost song={randomSotd} apiLink={API_LINK} />
+              </div>
+            )}
           </div>
         </section>
 
@@ -53,7 +94,7 @@ function Home() {
             <img
               className="genre-icon"
               src={`${API_LINK
-}/images/headphones.svg`}
+                }/images/headphones.svg`}
               alt="Headphones icon" />
             <h3>Lo-fi</h3>
             <p className="genre-desc">Shared by @chillbeats</p>
@@ -63,7 +104,7 @@ function Home() {
             <img
               className="genre-icon"
               src={`${API_LINK
-}/images/violin.svg`}
+                }/images/violin.svg`}
               alt="Violin icon" />
             <h3>Indie Rock</h3>
             <p className="genre-desc">Shared by @indiemusic</p>
@@ -73,7 +114,7 @@ function Home() {
             <img
               className="genre-icon"
               src={`${API_LINK
-}/images/microphone.svg`}
+                }/images/microphone.svg`}
               alt="Microphone icon" />
             <h3>Jazz</h3>
             <p className="genre-desc">Shared by @jazzmaster</p>
@@ -83,7 +124,7 @@ function Home() {
             <img
               className="genre-icon"
               src={`${API_LINK
-}/images/electronic.svg`}
+                }/images/electronic.svg`}
               alt="Electronic music icon" />
             <h3>Electronic</h3>
             <p className="genre-desc">Shared by @technozone</p>
@@ -93,7 +134,7 @@ function Home() {
             <img
               className="genre-icon"
               src={`${API_LINK
-}/images/speaker.svg`}
+                }/images/speaker.svg`}
               alt="Speaker icon" />
             <h3>Hip Hop</h3>
             <p className="genre-desc">Shared by @hiphopcentral</p>
@@ -103,7 +144,7 @@ function Home() {
             <img
               className="genre-icon"
               src={`${API_LINK
-}/images/classical.svg`}
+                }/images/classical.svg`}
               alt="Classical music icon" />
             <h3>Classical</h3>
             <p className="genre-desc">Shared by @classical</p>
@@ -144,7 +185,7 @@ function Home() {
               <img
                 id="live-image"
                 src={`${API_LINK
-}/images/note.svg`}
+                  }/images/note.svg`}
                 alt={`${song.title} artwork`} />
               <div id="commingle-live-info">
                 <h3>{song.title}</h3>
@@ -157,7 +198,7 @@ function Home() {
               <img
                 className="commingle-icon"
                 src={`${API_LINK
-}/images/commingle_sample.svg`}
+                  }/images/commingle_sample.svg`}
                 alt="Listening group icons" />
             </p>
           </div>

@@ -596,6 +596,39 @@
     color: var(--secondary-text);
 }
 
+.page-post .song-post {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        width: 100%;
+        padding: 24px;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        background-color: var(--surface-background);
+    }
+
+    .page-post .song-post > a {
+        flex: 0 0 140px;
+    }
+
+    .page-post .song-post > a img {
+        display: block;
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .page-post .song-info {
+        flex: 1;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .page-post .song-info h2 {
+        margin-top: 0;
+    }
+
 @media (max-width: 1000px) {
     .page-post .site-header {
         flex-wrap: wrap;

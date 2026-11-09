@@ -1,13 +1,38 @@
-import song from "../components/fillerSong";
 import { Link } from "react-router-dom";
 import SongPost from "../components/SongPost";
 import "../styles/browse.css";
 import { useEffect, useState } from "react";
 
-const API_LINK = "https://musicmultiversebackend.onrender.com/";
+const API_LINK = "https://musicmultiversebackend.onrender.com";
 
 function Browse() {
-  
+  const [songs, setSongs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function fetchSongs() {
+      try {
+        setLoading(true);
+        const response = await fetch(`${API_LINK}/api/songs`);
+        
+        if (!response.ok) {
+          throw new Error("Failed to fetch songs from server.");
+        }
+        
+        const data = await response.json();
+        setSongs(data);
+      } catch (err) {
+        console.error("Error loading songs:", err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchSongs();
+  }, []);
+
   return (
     <div className="page-browse">
       <main>
@@ -37,9 +62,9 @@ function Browse() {
 
           <img
             className="hero-art"
-            src={`${API_LINK
-}/images/digital-underground.svg`}
-            alt="Abstract violet and blue sound waves with geometric shapes" />
+            src={`${API_LINK}/images/digital-underground.svg`}
+            alt="Abstract violet and blue sound waves with geometric shapes" 
+          />
         </section>
 
         <section className="filter-bar">
@@ -69,63 +94,23 @@ function Browse() {
             <h2>Recent Curations</h2>
 
             <div id="song-box">
-              <SongPost/>
+              {loading && <p>Loading tracks from the underground...</p>}
+              {error && <p style={{ color: "red" }}>Error: {error}</p>}
+              
+              {!loading && !error && songs.length === 0 && (
+                <p>No tracks found in the archives.</p>
+              )}
+
+              {!loading && songs.map((song) => (
+                <div key={song._id} style={{ marginBottom: "20px" }}>
+                  <SongPost song={song} apiLink={API_LINK} />
+                </div>
+              ))}
             </div>
           </div>
 
           <aside className="radar-column" id="radar">
             <h2>On the Radar</h2>
-
-            <ol className="radar-list">
-              <li>
-                <span className="rank">01</span>
-                <div>
-                  <strong>{song.title}</strong>
-                  <span>{song.artist}</span>
-                </div>
-                <div className="score">
-                  <strong>4.2k</strong>
-                  <span>+12%</span>
-                </div>
-              </li>
-
-              <li>
-                <span className="rank">02</span>
-                <div>
-                  <strong>{song.title}</strong>
-                  <span>{song.artist}</span>
-                </div>
-                <div className="score">
-                  <strong>3.8k</strong>
-                  <span>+8%</span>
-                </div>
-              </li>
-
-              <li>
-                <span className="rank">03</span>
-                <div>
-                  <strong>{song.title}</strong>
-                  <span>{song.artist}</span>
-                </div>
-                <div className="score">
-                  <strong>3.1k</strong>
-                  <span>+24%</span>
-                </div>
-              </li>
-
-              <li>
-                <span className="rank">04</span>
-                <div>
-                  <strong>{song.title}</strong>
-                  <span>{song.artist}</span>
-                </div>
-                <div className="score">
-                  <strong>2.9k</strong>
-                  <span>-2%</span>
-                </div>
-              </li>
-            </ol>
-
             <section className="radio-card">
               <h3>Crate Diggers Radio</h3>
               <p>

@@ -1,9 +1,52 @@
 import SongPost from "../components/SongPost";
 import "../styles/profile.css";
+import { useEffect, useState } from "react";
 
-const API_LINK = "https://musicmultiversebackend.onrender.com/";
+const API_LINK = "https://musicmultiversebackend.onrender.com";
+const PROFILE_USERNAME = "@Sander_D";
 
 function Profile() {
+  const [songs, setSongs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let ignore = false;
+
+    async function loadSongs() {
+      try {
+        const response = await fetch(`${API_LINK}/api/songs`);
+
+        if (!response.ok) {
+          throw new Error("Could not load shared tracks.");
+        }
+
+        const data = await response.json();
+
+        const profileSongs = data.filter(
+          (song) => song.post?.username === PROFILE_USERNAME
+        );
+
+        if (!ignore) {
+          setSongs(profileSongs);
+        }
+      } catch (err) {
+        if (!ignore) {
+          setError(err.message);
+        }
+      } finally {
+        if (!ignore) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadSongs();
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
   return (
     <div className="page-profile">
       <main>
@@ -91,7 +134,20 @@ function Profile() {
             </nav>
 
             <div id="shared-tracks">
-              <SongPost />
+              {loading && <p>Loading shared tracks...</p>}
+
+              {error && <p>{error}</p>}
+
+              {!loading && !error && songs.length === 0 && (
+                <p>No tracks shared yet.</p>
+              )}
+
+              {!loading && !error && songs.map((song) => (
+                <SongPost
+                  key={song._id}
+                  song={song}
+                  apiLink={API_LINK}/>
+              ))}
             </div>
           </section>
         </section>
