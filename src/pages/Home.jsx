@@ -4,6 +4,8 @@ import SongPost from "../components/SongPost";
 import "../styles/home.css";
 import Display from "../components/Display";
 
+const API_LINK = "https://musicmultiversebackend.onrender.com/";
+
 function Home() {
   return (
     <div className="page-home">
@@ -50,7 +52,8 @@ function Home() {
           <div className="genre-box">
             <img
               className="genre-icon"
-              src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+              src={`${API_LINK
+}/images/headphones.svg`}
               alt="Headphones icon" />
             <h3>Lo-fi</h3>
             <p className="genre-desc">Shared by @chillbeats</p>
@@ -59,7 +62,8 @@ function Home() {
           <div className="genre-box">
             <img
               className="genre-icon"
-              src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+              src={`${API_LINK
+}/images/violin.svg`}
               alt="Violin icon" />
             <h3>Indie Rock</h3>
             <p className="genre-desc">Shared by @indiemusic</p>
@@ -68,7 +72,8 @@ function Home() {
           <div className="genre-box">
             <img
               className="genre-icon"
-              src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+              src={`${API_LINK
+}/images/microphone.svg`}
               alt="Microphone icon" />
             <h3>Jazz</h3>
             <p className="genre-desc">Shared by @jazzmaster</p>
@@ -77,7 +82,8 @@ function Home() {
           <div className="genre-box">
             <img
               className="genre-icon"
-              src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+              src={`${API_LINK
+}/images/electronic.svg`}
               alt="Electronic music icon" />
             <h3>Electronic</h3>
             <p className="genre-desc">Shared by @technozone</p>
@@ -86,7 +92,8 @@ function Home() {
           <div className="genre-box">
             <img
               className="genre-icon"
-              src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+              src={`${API_LINK
+}/images/speaker.svg`}
               alt="Speaker icon" />
             <h3>Hip Hop</h3>
             <p className="genre-desc">Shared by @hiphopcentral</p>
@@ -95,7 +102,8 @@ function Home() {
           <div className="genre-box">
             <img
               className="genre-icon"
-              src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+              src={`${API_LINK
+}/images/classical.svg`}
               alt="Classical music icon" />
             <h3>Classical</h3>
             <p className="genre-desc">Shared by @classical</p>
@@ -135,7 +143,8 @@ function Home() {
             <div id="commingle-song-group">
               <img
                 id="live-image"
-                src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+                src={`${API_LINK
+}/images/note.svg`}
                 alt={`${song.title} artwork`} />
               <div id="commingle-live-info">
                 <h3>{song.title}</h3>
@@ -147,7 +156,8 @@ function Home() {
               Active participants:
               <img
                 className="commingle-icon"
-                src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+                src={`${API_LINK
+}/images/commingle_sample.svg`}
                 alt="Listening group icons" />
             </p>
           </div>

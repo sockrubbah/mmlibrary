@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const MySongs = () => {
-    const [songList, setSongList] = useState(null)
+    const [songList, setSongList] = useState([]);
 
     useEffect(() => {
-        const base_url = "https://sockrubbah.github.io/projects/part7/song.json";
+        const base_url = "https://musicmultiversebackend.onrender.com/";
 
         const getSongs = async () => {
-            const response = await fetch(base_url);
-            const result = await response.json()
-
+            const response = await axios.get(base_url);
             if (!response.ok) {
                 throw new Error("Could not load song data.");
             }
 
-            setSongList(result)
+            setSongList(response.data);
         }
 
         const createImage = (src, alt, className = "") => {
@@ -33,16 +31,16 @@ const MySongs = () => {
     }, [])
 
     return (
-        <div>
-            {songlist ? (
-                <div>
-                    <h3>{item.song_name}</h3>
-                    <p>{item.song_artist}</p>
-                    <span>{item.song_genre}</span>
-                </div>) : (
-                <p> Loading posts...</p>
-            )}
-            </div>
+        <div id="song-list" className="song">
+            {songList.map((song) => (
+                <Song
+                    name = {song.song_name}
+                    artist = {song.song_artist}
+                    genre = {song.song_genre}
+                />
+            ))}
+
+        </div>
     )
 }
 

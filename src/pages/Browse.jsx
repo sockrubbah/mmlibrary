@@ -2,8 +2,12 @@ import song from "../components/fillerSong";
 import { Link } from "react-router-dom";
 import SongPost from "../components/SongPost";
 import "../styles/browse.css";
+import { useEffect, useState } from "react";
+
+const API_LINK = "https://musicmultiversebackend.onrender.com/";
 
 function Browse() {
+  
   return (
     <div className="page-browse">
       <main>
@@ -33,7 +37,8 @@ function Browse() {
 
           <img
             className="hero-art"
-            src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+            src={`${API_LINK
+}/images/shield.svg`}
             alt="Abstract violet and blue sound waves with geometric shapes" />
         </section>
 

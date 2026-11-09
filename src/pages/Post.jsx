@@ -1,8 +1,72 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import SongPost from "../components/SongPost";
 import "../styles/post.css";
 
+const API_LINK = "https://musicmultiversebackend.onrender.com/";
+
 function Post() {
+  const { id } = useParams();
+
+  const [song, setSong] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let ignore = false;
+
+    async function loadSong() {
+      setLoading(true);
+      setError("");
+      setSong(null);
+
+      try {
+        const response = await fetch(`${API_ORIGIN}/api/songs`);
+
+        if (!response.ok) {
+          throw new Error("Could not load the post.");
+        }
+
+        const songs = await response.json();
+
+        const selectedSong = songs.find(
+          (item) => String(item._id) === id
+        );
+
+        if (!selectedSong) {
+          throw new Error("Post not found.");
+        }
+
+        if (!ignore) {
+          setSong(selectedSong);
+        }
+      } catch (error) {
+        if (!ignore) {
+          setError(error.message);
+        }
+      } finally {
+        if (!ignore) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadSong();
+
+    return () => {
+      ignore = true;
+    };
+  }, [id]);
+
+  if (loading) {
+    return <p>Loading post...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  const comments = song.comments || [];
   return (
     <div className="page-post">
       <main>
@@ -16,94 +80,71 @@ function Post() {
 
         <div className="post-layout">
           <div className="main-column">
-            <SongPost/>
+            <SongPost song={song} apiLink={API_LINK} />
 
             <section className="discussion">
               <div className="discussion-heading">
-                <h2>Discussion (9 Replies)</h2>
-                <button type="button">Newest first</button>
+                <h2>
+                  Discussion ({comments.length}{" "}
+                  {comments.length === 1 ? "Reply" : "Replies"})
+                </h2>
               </div>
 
               <section className="reply-form">
                 <div className="reply-user">
                   <img
-                    src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-                    alt="Your profile picture"/>
+                    src={`${API_LINK
+}/images/current-user.svg`}
+                    alt="Your profile"
+                  />
                   <strong>@you</strong>
                 </div>
 
                 <div className="static-field">
-                  Write a respectful reply... (Use Markdown-like references
-                  or share a track)
+                  Write a reply...
                 </div>
 
                 <div className="reply-actions">
-                  <button type="button">Attach Record</button>
-                  <button type="button">Post Reply</button>
+                  <button type="button" disabled>
+                    Attach Record
+                  </button>
+                  <button type="button" disabled>
+                    Post Reply
+                  </button>
                 </div>
               </section>
 
-              <article className="comment">
-                <header>
-                  <img
-                    src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-                    alt="Acid Jerk profile picture"/>
-                  <div>
-                    <h3>
-                      @acid_jerk <span>MODERATOR</span>
-                    </h3>
-                    <time dateTime="PT1H">1 hour ago</time>
-                  </div>
-                  <button type="button">♡ 18</button>
-                </header>
+              {comments.length === 0 ? (
+                <p>No comments.</p>
+              ) : (
+                comments.map((comment, index) => (
+                  <article
+                    className="comment"
+                    key={comment._id || index}
+                  >
+                    <header>
+                      {comment.user_picture && (
+                        <img
+                          src={
+                            new URL(
+                              comment.user_picture,
+                              `${API_ORIGIN}/`
+                            ).href
+                          }
+                          alt={`${comment.username || "User"} profile`}
+                        />
+                      )}
 
-                <p>
-                  Agreed! The sub-bass on this is incredibly well-controlled.
-                  Tokyo's underground is carrying the torch for deep ambient
-                  right now. Reminds me of classic 90s Susumu Yokota releases.
-                </p>
-              </article>
+                      <div>
+                        <h3>{comment.username || "Unknown user"}</h3>
+                        <time>{comment.time}</time>
+                      </div>
+                    </header>
 
-              <article className="comment">
-                <header>
-                  <img
-                    src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-                    alt="Shoegazer 99 profile picture"/>
-                  <div>
-                    <h3>
-                      @shoegazer_99 <span>TOP DIGGER</span>
-                    </h3>
-                    <time dateTime="PT45M">45 mins ago</time>
-                  </div>
-                  <button type="button">♡ 11</button>
-                </header>
-
-                <p>
-                  The synth textures are so lush and layered. Feels like
-                  walking through a neon-drenched rainy street. Instant
-                  bookmark for my midnight commute playlists.
-                </p>
-              </article>
-
-              <article className="comment">
-                <header>
-                  <img
-                    src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-                    alt="Fuzz Lord profile picture"/>
-                  <div>
-                    <h3>
-                      @Fuzz_Lord <span>DIGGER</span>
-                    </h3>
-                    <time dateTime="PT20M">20 mins ago</time>
-                  </div>
-                  <button type="button">♡ 6</button>
-                </header>
-
-                <p>
-                  I was skeptical at first, but the mid-track modulation
-                  totally won me over. Absolute structural mastery here.
-                </p>
-              </article>
+                    <p>{comment.text}</p>
+                  </article>
+                ))
+              )}
             </section>
           </div>
 
@@ -113,8 +154,9 @@ function Post() {
 
               <article>
                 <img
-                  src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-                  alt="Acid Jerk profile picture"/>
+                  src={`${API_LINK
+}/images/acid-jerk.svg`}
+                  alt="Acid Jerk profile picture" />
                 <div>
                   <h3>@acid_jerk</h3>
                   <p>Rare vinyl &amp; house digger.</p>
@@ -124,8 +166,9 @@ function Post() {
 
               <article>
                 <img
-                  src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-                  alt="Shoegazer 99 profile picture"/>
+                  src={`${API_LINK
+}/images/shoegazer-99.svg`}
+                  alt="Shoegazer 99 profile picture" />
                 <div>
                   <h3>@shoegazer_99</h3>
                   <p>Wall of sound archivist.</p>
@@ -168,7 +211,7 @@ function Post() {
           <h2>Music Multiverse</h2>
           <p>
             A modular archive curated by human hands. Dedicated to
-            <br/>
+            <br />
             independent artists and active music explorers.
           </p>
         </div>

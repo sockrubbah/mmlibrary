@@ -2,6 +2,8 @@ import { useRef } from "react";
 import "../styles/about.css";
 import Contact from "../components/Contact";
 
+const API_LINK = "https://musicmultiversebackend.onrender.com/";
+
 function About() {
   const contactRef = useRef(null);
 
@@ -26,7 +28,8 @@ function About() {
             <article className="principle-card">
               <span className="icon-circle">
                 <img
-                  src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+                  src={`${API_LINK
+}/images/shield.svg`}
                   alt="" />
               </span>
               <h3>No Algorithms</h3>
@@ -39,7 +42,8 @@ function About() {
             <article className="principle-card">
               <span className="icon-circle">
                 <img
-                  src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+                  src={`${API_LINK
+}/images/shield.svg`}
                   alt="" />
               </span>
               <h3>Zero Ads</h3>
@@ -52,7 +56,8 @@ function About() {
             <article className="principle-card">
               <span className="icon-circle">
                 <img
-                  src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+                  src={`${API_LINK
+}/images/shield.svg`}
                   alt="" />
               </span>
               <h3>Artist Direct</h3>

@@ -26,17 +26,17 @@ function Header() {
                 </button>
                 <ul id="navigation-links" className={menuOpen ? "nav-open" : ""} onClick={() => setMenuOpen(false)}>
                     <li><NavLink to="/" end data-tooltip-id="music-tooltip"
-                    data-tooltip-content="Homepage">Home</NavLink></li>
+                        data-tooltip-content="Homepage">Home</NavLink></li>
                     <li><NavLink to="/browse" data-tooltip-id="music-tooltip"
-                    data-tooltip-content="Browse Users' Posts!">Browse</NavLink></li>
+                        data-tooltip-content="Browse Users' Posts!">Browse</NavLink></li>
                     <li><NavLink to="/commingle" data-tooltip-id="music-tooltip"
-                    data-tooltip-content="Join the Discourse!">Commingle</NavLink></li>
+                        data-tooltip-content="Join the Discourse!">Commingle</NavLink></li>
                     <li><NavLink to="/profile" data-tooltip-id="music-tooltip"
-                    data-tooltip-content="View Your Profile!">Profile</NavLink></li>
+                        data-tooltip-content="View Your Profile!">Profile</NavLink></li>
                     <li><NavLink to="/about" data-tooltip-id="music-tooltip"
-                    data-tooltip-content="About Us!">About</NavLink></li>
+                        data-tooltip-content="About Us!">About</NavLink></li>
                     <li><NavLink to="/share" className={({ isActive }) => `share-button${isActive ? " active" : ""}`} data-tooltip-id="music-tooltip"
-                    data-tooltip-content="Share a Song!">+ Share a Song</NavLink></li>
+                        data-tooltip-content="Share a Song!">+ Share a Song</NavLink></li>
                 </ul>
             </nav>
             <Waveform />

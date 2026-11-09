@@ -1,6 +1,8 @@
 import SongPost from "../components/SongPost";
 import "../styles/commingle.css";
 
+const API_LINK = "https://musicmultiversebackend.onrender.com/";
+
 function Commingle() {
   return (
     <div className="page-commingle">
@@ -17,7 +19,8 @@ function Commingle() {
           <div className="feed-column">
             <section className="create-post">
               <img
-                src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+                src={`${API_LINK
+}/images/current-user.svg`}
                 alt="Your profile picture"/>
               
               <div className="post-fields">
@@ -88,7 +91,8 @@ function Commingle() {
 
               <article>
                 <img
-                  src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+                  src={`${API_LINK
+}/images/acid-jerk.svg`}
                   alt="Acid Jerk profile picture"/>
                 <div>
                   <h3>@acid_jerk</h3>
@@ -99,7 +103,8 @@ function Commingle() {
 
               <article>
                 <img
-                  src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
+                  src={`${API_LINK
+}/images/shoegazer-99.svg`}
                   alt="Shoegazer 99 profile picture"/>
                 <div>
                   <h3>@shoegazer_99</h3>

@@ -1,6 +1,8 @@
 import SongPost from "../components/SongPost";
 import "../styles/profile.css";
 
+const API_LINK = "https://musicmultiversebackend.onrender.com/";
+
 function Profile() {
   return (
     <div className="page-profile">
@@ -8,14 +10,16 @@ function Profile() {
         <section className="profile-hero">
           <img
             className="cover-image"
-            src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-            alt="Close-up of a vintage turntable"/>
+            src={`${API_LINK
+              }/images/turntable-banner.svg`}
+            alt="Close-up of a vintage turntable" />
 
           <div className="profile-summary">
             <img
               className="profile-photo"
-              src={`${process.env.PUBLIC_URL}/images_working/sotd.svg`}
-              alt="Alex Chen holding a camera"/>
+              src={`${API_LINK
+                }/images/alex-chen.svg`}
+              alt="Alex Chen holding a camera" />
 
             <div className="profile-copy">
               <h1>Alex Chen</h1>
@@ -66,7 +70,6 @@ function Profile() {
                 <a href="#">Slowcore</a>
               </div>
             </section>
-
             <section className="sidebar-card links-card">
               <h2>Links</h2>
               <a href="https://bandcamp.com/desert_sander">
@@ -88,7 +91,7 @@ function Profile() {
             </nav>
 
             <div id="shared-tracks">
-              <SongPost/>
+              <SongPost />
             </div>
           </section>
         </section>

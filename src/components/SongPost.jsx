@@ -1,24 +1,43 @@
 import { Link } from "react-router-dom";
-import song from "./fillerSong";
 import "../styles/songpost.css";
 
-function SongPost() {
+function SongPost({ song, apiOrigin }) {
+    if (!song) return null;
+
     return (
         <article className="song-post">
-            <Link to="/post">
-                <img
-                    src={`${process.env.PUBLIC_URL}/${song.artwork}`}
-                    alt={`${song.title} artwork`} />
+            <Link to={`/post/${song._id}`}>
+                {song.song_picture && (
+                    <img
+                        src={
+                            new URL(
+                                song.song_picture,
+                                `${apiOrigin}/`
+                            ).href
+                        }
+                        alt={`${song.song_name} artwork`}
+                    />
+                )}
             </Link>
-
             <div className="song-info">
                 <h2>
-                    <Link to="/post">{song.title}</Link>
+                    <Link to={`/post/${song._id}`}>
+                        {song.song_name}
+                    </Link>
                 </h2>
-                <p>by {song.artist}</p>
-                <span className="song-genre">{song.genre}</span>
-                <p>{song.description}</p>
-                <p>Uploaded by {song.username}</p>
+                <p>by {song.song_artist}</p>
+                <span className="song-genre">
+                    {song.song_genre}
+                </span>
+                {song.song_description && (
+                    <p>{song.song_description}</p>
+                )}
+                <p>
+                    Uploaded by {song.post?.username || "Unknown user"}
+                </p>
+                {song.post?.text && (
+                    <p>{song.post.text}</p>
+                )}
             </div>
         </article>
     );
