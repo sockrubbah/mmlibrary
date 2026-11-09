@@ -57,8 +57,7 @@ function Share() {
 
           <aside className="preview-column">
             <h2>Visual Preview</h2>
-            <SongPost/>
-
+            <SongPost />
             <section className="verification-card">
               <h3>Track Preview</h3>
               <p>Preview of the community’s featured track.</p>

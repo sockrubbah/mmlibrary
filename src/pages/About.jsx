@@ -29,7 +29,7 @@ function About() {
               <span className="icon-circle">
                 <img
                   src={`${API_LINK
-}/images/shield.svg`}
+                    }/images/shield.svg`}
                   alt="" />
               </span>
               <h3>No Algorithms</h3>
@@ -43,7 +43,7 @@ function About() {
               <span className="icon-circle">
                 <img
                   src={`${API_LINK
-}/images/shield.svg`}
+                    }/images/shield.svg`}
                   alt="" />
               </span>
               <h3>Zero Ads</h3>
@@ -57,7 +57,7 @@ function About() {
               <span className="icon-circle">
                 <img
                   src={`${API_LINK
-}/images/shield.svg`}
+                    }/images/shield.svg`}
                   alt="" />
               </span>
               <h3>Artist Direct</h3>

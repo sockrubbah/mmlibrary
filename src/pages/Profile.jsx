@@ -47,6 +47,7 @@ function Profile() {
       ignore = true;
     };
   }, []);
+
   return (
     <div className="page-profile">
       <main>
@@ -146,7 +147,7 @@ function Profile() {
                 <SongPost
                   key={song._id}
                   song={song}
-                  apiLink={API_LINK}/>
+                  apiLink={API_LINK} />
               ))}
             </div>
           </section>

@@ -20,9 +20,9 @@ function Commingle() {
             <section className="create-post">
               <img
                 src={`${API_LINK
-}/images/current-user.svg`}
-                alt="Your profile picture"/>
-              
+                  }/images/current-user.svg`}
+                alt="Your profile picture" />
+
               <div className="post-fields">
                 <div className="static-field">
                   What are you listening to right now?
@@ -43,7 +43,7 @@ function Commingle() {
             </section>
 
             <div id="feed-posts">
-              <SongPost/>
+              <SongPost />
             </div>
 
             <section className="live-room">
@@ -92,8 +92,8 @@ function Commingle() {
               <article>
                 <img
                   src={`${API_LINK
-}/images/acid-jerk.svg`}
-                  alt="Acid Jerk profile picture"/>
+                    }/images/acid-jerk.svg`}
+                  alt="Acid Jerk profile picture" />
                 <div>
                   <h3>@acid_jerk</h3>
                   <p>Rare vinyl &amp; house digger.</p>
@@ -104,8 +104,8 @@ function Commingle() {
               <article>
                 <img
                   src={`${API_LINK
-}/images/shoegazer-99.svg`}
-                  alt="Shoegazer 99 profile picture"/>
+                    }/images/shoegazer-99.svg`}
+                  alt="Shoegazer 99 profile picture" />
                 <div>
                   <h3>@shoegazer_99</h3>
                   <p>Wall of sound archivist.</p>
