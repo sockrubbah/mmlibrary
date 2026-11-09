@@ -96,11 +96,9 @@ function Browse() {
             <div id="song-box">
               {loading && <p>Loading tracks from the underground...</p>}
               {error && <p style={{ color: "red" }}>Error: {error}</p>}
-              
               {!loading && !error && songs.length === 0 && (
                 <p>No tracks found in the archives.</p>
               )}
-
               {!loading && songs.map((song) => (
                 <div key={song._id} style={{ marginBottom: "20px" }}>
                   <SongPost song={song} apiLink={API_LINK} />

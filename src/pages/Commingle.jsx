@@ -1,7 +1,7 @@
 import SongPost from "../components/SongPost";
 import "../styles/commingle.css";
 
-const API_LINK = "https://musicmultiversebackend.onrender.com/";
+const API_LINK = "https://musicmultiversebackend.onrender.com";
 
 function Commingle() {
   return (

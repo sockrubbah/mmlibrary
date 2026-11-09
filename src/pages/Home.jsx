@@ -8,6 +8,7 @@ import Display from "../components/Display";
 const API_LINK = "https://musicmultiversebackend.onrender.com";
 
 function Home() {
+  const [songs, setSongs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [randomSotd, setRandomSotd] = useState(null);
