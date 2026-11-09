@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import "../styles/songpost.css";
 
-function SongPost({ song, apiOrigin }) {
+const API_LINK = "https://musicmultiversebackend.onrender.com/";
+
+function SongPost({ song, apiLink }) {
     if (!song) return null;
 
     return (
@@ -12,7 +14,7 @@ function SongPost({ song, apiOrigin }) {
                         src={
                             new URL(
                                 song.song_picture,
-                                `${apiOrigin}/`
+                                `${apiLink}/`
                             ).href
                         }
                         alt={`${song.song_name} artwork`}

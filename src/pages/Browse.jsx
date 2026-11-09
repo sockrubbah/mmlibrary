@@ -38,7 +38,7 @@ function Browse() {
           <img
             className="hero-art"
             src={`${API_LINK
-}/images/shield.svg`}
+}/images/digital-underground.svg`}
             alt="Abstract violet and blue sound waves with geometric shapes" />
         </section>
 

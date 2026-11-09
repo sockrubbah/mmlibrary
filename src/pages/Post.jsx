@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SongPost from "../components/SongPost";
 import "../styles/post.css";
 
-const API_LINK = "https://musicmultiversebackend.onrender.com/";
+const API_LINK = "https://musicmultiversebackend.onrender.com";
 
 function Post() {
   const { id } = useParams();
@@ -20,29 +20,37 @@ function Post() {
       setError("");
       setSong(null);
 
+      console.log("🔍 Looking for post with ID from URL:", id);
+
       try {
-        const response = await fetch(`${API_ORIGIN}/api/songs`);
+        const response = await fetch(`${API_LINK}/api/songs`);
+        console.log("📡 Fetch response status:", response.status);
 
         if (!response.ok) {
-          throw new Error("Could not load the post.");
+          throw new Error("Could not load posts from server.");
         }
 
         const songs = await response.json();
+        console.log("🎵 Total songs fetched from backend:", songs.length);
+        console.log("📝 All fetched song IDs:", songs.map(s => s._id));
 
         const selectedSong = songs.find(
-          (item) => String(item._id) === id
+          (item) => String(item._id) === String(id)
         );
 
+        console.log("🎯 Selected song found:", selectedSong);
+
         if (!selectedSong) {
-          throw new Error("Post not found.");
+          throw new Error(`Post not found for ID: ${id}`);
         }
 
         if (!ignore) {
           setSong(selectedSong);
         }
-      } catch (error) {
+      } catch (err) {
+        console.error("❌ Error loading song:", err);
         if (!ignore) {
-          setError(error.message);
+          setError(err.message);
         }
       } finally {
         if (!ignore) {
@@ -63,8 +71,10 @@ function Post() {
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return <p style={{ color: "red" }}>Error: {error}</p>;
   }
+
+  if (!song) return <p>No song data available.</p>;
 
   const comments = song.comments || [];
   return (
@@ -93,8 +103,7 @@ function Post() {
               <section className="reply-form">
                 <div className="reply-user">
                   <img
-                    src={`${API_LINK
-}/images/current-user.svg`}
+                    src={`${API_LINK}/images/current-user.svg`}
                     alt="Your profile"
                   />
                   <strong>@you</strong>
@@ -128,7 +137,7 @@ function Post() {
                           src={
                             new URL(
                               comment.user_picture,
-                              `${API_ORIGIN}/`
+                              `${API_LINK}/`
                             ).href
                           }
                           alt={`${comment.username || "User"} profile`}
@@ -154,8 +163,7 @@ function Post() {
 
               <article>
                 <img
-                  src={`${API_LINK
-}/images/acid-jerk.svg`}
+                  src={`${API_LINK}/images/acid-jerk.svg`}
                   alt="Acid Jerk profile picture" />
                 <div>
                   <h3>@acid_jerk</h3>
@@ -166,8 +174,7 @@ function Post() {
 
               <article>
                 <img
-                  src={`${API_LINK
-}/images/shoegazer-99.svg`}
+                  src={`${API_LINK}/images/shoegazer-99.svg`}
                   alt="Shoegazer 99 profile picture" />
                 <div>
                   <h3>@shoegazer_99</h3>
